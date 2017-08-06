@@ -1,0 +1,11 @@
+allprojects {
+	apply plugin: 'java'
+}
+
+project(':FirstJava') {}
+
+project(':SecondJava') {
+	dependencies {
+		compile project(':FirstJava')
+	}
+}

@@ -1,0 +1,26 @@
+def contentSpec = copySpec {
+	//exclude 'jingshanbuild.gradle.backup2', 'hello2' 
+	exclude {it.file.name.startsWith('hello')}
+	from 'src'
+}
+
+
+task copyImages2 (type: Copy) {
+	with contentSpec
+	into 'dest'
+}
+
+task copyImages (type: Copy) {
+	exclude 'jingshanbuild.gradle.backup2', 'hello'
+	from 'src'
+	into 'dest'
+}
+
+task copyConfig (type: Copy) {
+	include 'jingshanbuild.gradle.backup2'
+	from 'src'
+	into 'dest'
+	expand (
+		[hahaha : 'lalalalalala']
+	)
+}
